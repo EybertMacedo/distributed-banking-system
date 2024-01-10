@@ -1,0 +1,83 @@
+<!-- bank1/public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank 3 - Huancayo - Login</title>
+  <style>
+
+body {
+  background-color: rgb(140, 43, 52);
+  font-family: 'Asap', sans-serif;
+}
+
+.div{
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#login-form {
+  overflow: hidden;
+  background-color: #2b2121;
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 5px 10px 10px rgba(rgba(2, 128, 144, 1) 0.2);
+  
+   
+  > input {
+    font-family: 'Asap', sans-serif;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    margin: 15px -10px;
+  }
+  
+  > button {
+    font-family: 'Asap', sans-serif;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 80px;
+    border: 0;
+    padding: 10px 0;
+    margin-top: 10px;
+    margin-left: -5px;
+    border-radius: 5px;
+    background-color: rgba(244, 91, 105, 1);
+    
+    &:hover {
+      background-color: darken(rgba(244, 91, 105, 1), 5%);
+    } 
+}
+}
+a {
+  text-decoration: none;
+  color: rgba(white, 0.6);
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 12px;
+}
+  </style>
+</head>
+<body>
+    <div class = "div">
+        <form id="login-form">
+            <input type="text" id="username" name="username" required placeholder="Username">
+            <input type="password" id="password" name="password" required placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

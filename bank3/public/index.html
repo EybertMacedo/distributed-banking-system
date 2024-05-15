@@ -4,14 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank 3 - Huancayo - Login</title>
+  <title>Cajero - Mercaderes</title>
   <style>
 
 body {
   background-color: rgb(140, 43, 52);
   font-family: 'Asap', sans-serif;
 }
+@font-face {
+  font-family: '3DumbRegular';
+  src: url('3Dumb-webfont.eot');
+  src: local('?'), url('3Dumb-webfont.woff') format('woff'), url('3Dumb-webfont.ttf') format('truetype'), url('3Dumb-webfont.svg#webfont57ztNrX6') format('svg');
+}
 
+h1 {
+  font-family: '3DumbRegular', Arial, sans-serif;
+  font-weight:300;
+  text-align: center;
+  color: #ecd7d7;
+  text-shadow: 1px #4d2424 ;
+  margin-bottom: 25px;
+}
 .div{
     margin: 0;
   position: absolute;
@@ -71,6 +84,7 @@ a {
 </head>
 <body>
     <div class = "div">
+      <h1>Ingresar al sistema - Mercaderes</h1>
         <form id="login-form">
             <input type="text" id="username" name="username" required placeholder="Username">
             <input type="password" id="password" name="password" required placeholder="Password">

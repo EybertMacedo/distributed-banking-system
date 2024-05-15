@@ -1,0 +1,327 @@
+<!–– bank1/public/index.html ––>
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BANK 2 - LIMA</title>
+  <style>
+    .container {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  height: 100%;
+}
+.header {
+  text-align: center;
+  background-color: rgb(21, 20, 20);
+  color: #ffefef;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+body {
+  font-family: 'Merriweather', sans-serif;
+  background-color: rgb(140, 43, 52);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+tr {
+  background-color: #f2f2f2;
+}
+th, td {
+  border: 1px outset #ddd;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #9b4c53;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+
+input {
+  font-family: 'Merriweather', sans-serif;
+  position: relative;
+  margin: auto;
+  border-radius: 1px;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+button {    
+  border-radius: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  }
+
+.button-green {
+  background-color: #e5f4e1;
+  border: 1px outset #707c6f;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;  
+  color: #4a9d39;
+}
+
+.button-green:hover,
+.button-green:focus {
+  background-color: #bddfb4;
+  color: #094f60;
+}
+
+.button-green:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-green:active {
+  background-color: #7ab2d8;
+  box-shadow: none;
+  color: #2f772c;
+}    
+.button-blue {
+  background-color: #e1ecf4;
+  border: 1px outset #6f7b7c;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;  
+  color: #39739d;
+}
+
+.button-blue:hover,
+.button-blue:focus {
+  background-color: #b4dcdf;
+  color: #146009;
+}
+
+.button-blue:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-blue:active {
+  background-color: #7ad8b9;
+  box-shadow: none;
+  color: #2c5777;
+}
+.button-red {
+  background-color: #e88089;
+  border: 1px outset #7c6f6f;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;  
+  color: #fff;
+}
+
+.button-red:hover,
+.button-red:focus {
+  background-color: #d72b39;
+  color: #fff;
+}
+
+.button-red:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.button-red:active {
+  background-color: #d87a7a;
+  box-shadow: none;
+  color: #772c2c;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>Cajero automatico - Calle Mercaderes</h1>
+  </div>
+  <div class="container"> 
+    <h2>Account Operations</h2>
+
+    <h3>Accounts:</h3>
+    <table id="accounts-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Billetera</th>
+          <th>Balance</th>          
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody id="accounts-list"></tbody>
+    </table>
+    
+    <h3>Deposit:</h3>
+    <form id="deposit-form">
+      <label for="depositAccountId">Account ID:</label>
+      <input type="number" id="depositAccountId" name="depositAccountId" required>
+      <label for="depositAmount">Amount:</label>
+      <input type="number" id="depositAmount" name="depositAmount" step="0.01" required>
+      <button class="button-green" role="button" type="submit">Deposit Money</button>
+    </form>
+
+    <h3>Transfer:</h3>
+    <form id="transaction-form">
+      <label for="transferFromAccountId">From Account ID:</label>
+      <input type="number" id="transferFromAccountId" name="transferFromAccountId" required>
+      <label for="transferToAccountId">To Account ID:</label>
+      <input type="number" id="transferToAccountId" name="transferToAccountId" required>
+      <label for="transferAmount">Amount:</label>
+      <input type="number" id="transferAmount" name="transferAmount" step="0.01" required>
+      <button class="button-blue" role="button" type="submit">Transfer Money</button>
+    </form>
+
+    <h3>Withdraw:</h3>
+    <form id="withdraw-form">
+      <label for="withdrawAccountId">Account ID:</label>
+      <input type="number" id="withdrawAccountId" name="withdrawAccountId" required>
+      <label for="withdrawAmount">Amount:</label>
+      <input type="number" id="withdrawAmount" name="withdrawAmount" step="0.01" required>
+      <button class="button-red" role="button" type="submit">Withdraw Money</button>
+    </form>
+    
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', async () => {
+  // Fetch and display accounts
+  const currentUrl = window.location.href;
+  console.log(currentUrl);
+  const accounts = await fetchAccounts(currentUrl);
+  displayAccounts(accounts);
+
+  // Set up deposit form submission
+const depositForm = document.getElementById('deposit-form');
+  depositForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const accountId = document.getElementById('depositAccountId').value;
+    const amount = document.getElementById('depositAmount').value;
+    await depositMoney(accountId, amount);
+    // Refresh accounts list after deposit
+    const updatedAccounts = await fetchAccounts(currentUrl);
+    displayAccounts(updatedAccounts);
+  });
+
+  // Set up transfer form submission
+  const transferForm = document.getElementById('transaction-form');
+  transferForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const fromAccountId = document.getElementById('transferFromAccountId').value;
+    const toAccountId = document.getElementById('transferToAccountId').value;
+    const amount = document.getElementById('transferAmount').value;
+    await transferMoney(fromAccountId, toAccountId, amount);
+    // Refresh accounts list after transfer
+    const updatedAccounts = await fetchAccounts(currentUrl);
+    displayAccounts(updatedAccounts);
+  });
+
+  // Set up withdrawal form submission
+  const withdrawForm = document.getElementById('withdraw-form');
+  withdrawForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const accountId = document.getElementById('withdrawAccountId').value;
+    const amount = document.getElementById('withdrawAmount').value;
+    await withdrawMoney(accountId, amount);
+    // Refresh accounts list after withdrawal
+    const updatedAccounts = await fetchAccounts(currentUrl);
+    displayAccounts(updatedAccounts);
+  });
+});
+
+async function fetchAccounts(url) {  
+  try {
+    let apiUrl;    
+      const clientId = url.split('/clients/')[1];
+      apiUrl = `http://localhost:3002/clients/${clientId}`;   
+
+    const response = await axios.get(apiUrl);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching accounts:', error);
+  }  
+}
+
+function displayAccounts(accounts) {
+  console.log('Displaying accounts:', accounts);
+
+  const accountsTable = document.getElementById('accounts-table');
+  const accountsList = document.getElementById('accounts-list');
+  
+  while (accountsTable.rows.length > 1) {
+    accountsTable.deleteRow(1);
+  }
+
+  accounts.forEach((account) => {
+    const row = accountsTable.insertRow(-1);
+    const cellId = row.insertCell(0);
+    const cellBankId = row.insertCell(1);
+    const cellBalance = row.insertCell(2);
+    const cellDescription = row.insertCell(3);
+
+    cellId.textContent = account.id;
+        //SOlo para DAS
+        banks = ["Yape","Plin","Tunki"]
+    cellBankId.textContent = banks[account.bank_id-1];
+    cellBalance.textContent = account.balance;
+    cellDescription.textContent = account.description;
+  }
+  );     
+}
+
+async function depositMoney(accountId, amount) {
+  try {
+    await axios.post(`http://localhost:3002/accounts/${accountId}/deposit`, { amount });
+  } catch (error) {
+    console.error('Error depositing money:', error);
+  }
+}
+
+async function transferMoney(fromAccountId, toAccountId, amount) {
+  try {
+    await axios.post(`http://localhost:3002/accounts/${fromAccountId}/transfer/${toAccountId}`, { amount });
+  } catch (error) {
+    console.error('Error transferring money:', error);
+  }
+}
+
+async function withdrawMoney(accountId, amount) {
+  try {
+    await axios.post(`http://localhost:3002/accounts/${accountId}/withdraw`, { amount });
+  } catch (error) {
+    console.error('Error withdrawing money:', error);
+  }
+}
+  </script>
+</body>
+</html>

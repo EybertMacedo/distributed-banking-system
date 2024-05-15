@@ -1,0 +1,61 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Clients Management</title>
+</head>
+<body>
+  <div class="header">
+  <h1>Distributed Banking System</h1>
+  </div>
+  <div class="container">   
+  <h2>Client Management</h2>
+
+  <h3>Create New Client:</h3>
+  <form id="create-client-form">
+    <label for="clientName">Name:</label>
+    <input type="text" id="clientName" name="clientName" required>
+    <label for="clientEmail">Email:</label>
+    <input type="email" id="clientEmail" name="clientEmail" required>    
+    <button class="button-green" role="button" class="button-blue" role="button" type="submit">Create Client</button>
+  </form>
+
+  <h3>Clients:</h3>
+  <table id="clients-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Accounts</th>
+      </tr>
+    </thead>
+    <tbody id="clients-list"></tbody>
+  </table>
+
+  <h3>Update Client:</h3>
+  <form id="update-client-form">
+    <label for="updateClientId">Client ID:</label>
+    <input type="number" id="updateClientId" name="updateClientId" required>
+    <label for="updateClientName">New Name:</label>
+    <input type="text" id="updateClientName" name="updateClientName">
+    <label for="updateClientEmail">New Email:</label>
+    <input type="email" id="updateClientEmail" name="updateClientEmail">
+    <button class="button-green" role="button" type="submit">Update Client</button>
+  </form>
+
+  <h3>Delete Client:</h3>
+  <form id="delete-client-form">
+    <label for="deleteClientId">Client ID:</label>
+    <input type="number" id="deleteClientId" name="deleteClientId" required>
+    <button class="button-red" role="button" type="submit">Delete Client</button>
+  </form>
+</div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

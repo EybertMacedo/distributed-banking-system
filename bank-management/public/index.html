@@ -1,0 +1,37 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Bank Management</title>
+</head>
+<body>
+  <div class="header">
+  <h1>Distributed Banking System</h1>
+  </div>
+  <div class="container">   
+  <h2>Bank Management</h2> 
+
+  <h3>Banks:</h3>
+  <table id="banks-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Accounts</th>
+      </tr>
+    </thead>
+    <tbody id="banks-list"></tbody>
+  </table>
+
+  <hr>
+  <button class="button-blue" role="button" onclick="window.location.href='http://localhost:3002/'">Accounts</button>
+  <button class="button-blue" role="button" onclick="window.location.href='http://localhost:3001/'">Clients</button>
+  <button class="button-green" role="button" onclick="window.location.href='http://localhost:5001/export'">Dump</button>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

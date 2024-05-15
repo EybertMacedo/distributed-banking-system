@@ -1,0 +1,50 @@
+version: '4'
+
+services:
+  bank-management:
+    build:
+      context: ./bank-management
+    ports:
+      - "3000:3000"
+      
+  client-management:
+    build:
+      context: ./client-management
+    ports:
+      - "3001:3001"
+
+  account-management:
+    build:
+      context: ./account-management
+    ports:
+      - "3002:3002"
+
+  auth-service:
+    build:
+      context: ./auth-service
+    ports:
+      - "3004:3004"
+
+  bank1:
+    build:
+      context: ./bank1
+    ports:
+      - "4001:4001"
+
+  bank2:
+    build:
+      context: ./bank2
+    ports:
+      - "4002:4002"
+  
+  bank3:
+    build:
+      context: ./bank3
+    ports:
+      - "4003:4003"
+
+  fileservice:
+    build:
+      context: ./fileserviceNFS
+    ports:
+      - "5001:5001"

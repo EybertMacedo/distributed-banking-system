@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   createAccountForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     const clientId = document.getElementById('clientId').value;
-    const bankId = document.getElementById('bankId').value;
+    const cashierId = document.getElementById('cashierId').value;
     const balance = document.getElementById('balance').value;
     const description = document.getElementById('description').value;
-    await createAccount(clientId, bankId, balance, description);
+    await createAccount(clientId, cashierId, balance, description);
     // Refresh accounts list after creating a new account
     const updatedAccounts = await fetchAccounts(currentUrl);
     displayAccounts(updatedAccounts);
@@ -25,10 +25,10 @@ async function fetchAccounts(url) {
   try {
     let apiUrl;
 
-    if (url.includes('/banks/')) {
-      // If the URL contains '/banks/', fetch accounts based on bank ID
-      const bankId = url.split('/banks/')[1];
-      apiUrl = `http://localhost:3002/banks/${bankId}`;
+    if (url.includes('/cashiers/')) {
+      // If the URL contains '/cashiers/', fetch accounts based on cashier ID
+      const cashierId = url.split('/cashiers/')[1];
+      apiUrl = `http://localhost:3002/cashiers/${cashierId}`;
     } else if (url.includes('/clients/')) {
       // If the URL contains '/clients/', fetch accounts based on client ID
       const clientId = url.split('/clients/')[1];
@@ -46,17 +46,17 @@ async function fetchAccounts(url) {
 
 
 
-async function createAccount(clientId, bankId, balance, description) {
+async function createAccount(clientId, cashierId, balance, description) {
   try {
-    await axios.post('http://localhost:3002/accounts', { clientId, bankId, balance, description});
+    await axios.post('http://localhost:3002/accounts', { clientId, cashierId, balance, description});
   } catch (error) {
     console.error('Error creating account:', error);
   }
 }
 
-async function updateClient(newClientId, newBankId, newBalance, newDescription) {
+async function updateClient(newClientId, newcashierId, newBalance, newDescription) {
   try {
-    await axios.put(`http://localhost:3002/accounts/${accountId}`, { client_id: newClientId, bank_id: newBankId, balance: newBalance, description:newDescription });
+    await axios.put(`http://localhost:3002/accounts/${accountId}`, { client_id: newClientId, cashier_id: newcashierId, balance: newBalance, description:newDescription });
   } catch (error) {
     console.error('Error updating client:', error);
   }
@@ -91,13 +91,13 @@ function displayAccounts(accounts) {
     const row = accountsTable.insertRow(-1);
     const cellId = row.insertCell(0);
     const cellClientId = row.insertCell(1);
-    const cellBankId = row.insertCell(2);
+    const cellcashierId = row.insertCell(2);
     const cellBalance = row.insertCell(3);
     const cellDescription = row.insertCell(4);
 
     cellId.textContent = account.id;
     cellClientId.textContent = account.client_id;
-    cellBankId.textContent = account.bank_id;
+    cellcashierId.textContent = account.cashier_id;
     cellBalance.textContent = account.balance;
     cellDescription.textContent = account.description;
   });     

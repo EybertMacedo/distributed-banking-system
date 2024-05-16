@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const port = 4003;
+const port = 4001;
 const pgp = require('pg-promise')();
 const path = require('path');
 
@@ -17,12 +17,14 @@ app.get('/clients/:clientId', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'accountOperations.html'));
   } else {
     const clientId = req.params.clientId;
-    db.any('SELECT * FROM accounts WHERE client_id = $1', [clientId])
+    db.any('SELECT * FROM accounts WHERE client_id = $1;', [clientId])
       .then(accounts => res.json(accounts))
       .catch(error => {
         console.error('Error fetching accounts:', error);
         res.status(500).json({ error: 'Internal Server Error' });
-      });
+      }
+    );    
+    
   }
 });
 
@@ -79,5 +81,5 @@ app.post('/accounts/:accountId/withdraw', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Bank 3 - Huancayo - Microservice is running at http://localhost:${port}`);
+  console.log(`Cashier 1 - Goyeneche Microservice is running at http://localhost:${port}`);
 });

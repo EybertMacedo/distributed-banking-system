@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const port = 4002;
+const port = 4003;
 const pgp = require('pg-promise')();
 const path = require('path');
 
@@ -79,5 +79,5 @@ app.post('/accounts/:accountId/withdraw', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Bank 2 - Lima Microservice is running at http://localhost:${port}`);
+  console.log(`Cashier 3 - Mercaderes - Microservice is running at http://localhost:${port}`);
 });

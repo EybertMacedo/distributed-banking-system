@@ -1,9 +1,9 @@
 version: '4'
 
 services:
-  bank-management:
+  cashier-management:
     build:
-      context: ./bank-management
+      context: ./cashier-management
     ports:
       - "3000:3000"
       
@@ -25,21 +25,21 @@ services:
     ports:
       - "3004:3004"
 
-  bank1:
+  cashier1:
     build:
-      context: ./bank1
+      context: ./cashier1
     ports:
       - "4001:4001"
 
-  bank2:
+  cashier2:
     build:
-      context: ./bank2
+      context: ./cashier2
     ports:
       - "4002:4002"
   
-  bank3:
+  cashier3:
     build:
-      context: ./bank3
+      context: ./cashier3
     ports:
       - "4003:4003"
 
